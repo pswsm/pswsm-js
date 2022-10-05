@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculadora</title>
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<script src="js/hide_show.js"></script>
+	<script src="js/factorize.js"></script>
+	<script src="js/calc.js"></script>
+	<script src="js/dni.js"></script>
+</head>
+<body>
+	<nav class="tabs is-centered">
+		<ul>
+			<li>
+				<div id="show1">
+					<a>
+						<div>
+							<p>Ex1</p>
+						</div>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div id="show2">
+					<a>
+						<div>
+							<p>Ex2</p>
+						</div>
+					</a>
+				</div>
+			</li>
+			<li>
+				<div id="show3">
+					<a>
+						<div>
+							<p>Ex3</p>
+						</div>
+					</a>
+				</div>
+			</li>
+		</ul>
+	</nav>
+	<div class="container">
+		<div class="block" id="e1">
+			<div class="field">
+				<button id="bFact" class="button" type="button">Click to factorize 10</button>
+				<p id="factorized"></p>
+			</div>
+		</div>
+		<div class="block" id="e2">
+			<form id="f1" method="POST">
+				<div class="field">
+					<label class="label" for="n1">Input number one</label>
+					<input id="n1" class="input" type="number" name="n1" placeholder="0">
+				</div>
+				<div class="field">
+					<label class="label" for="n2">Input number two</label>
+					<input id="n2" class="input" type="number" name="n2" placeholder="0">
+				</div>
+				<div class="field">
+					<button type="button" id="sum" class="control">+</button>
+					<button type="button" id="min" class="control">-</button>
+					<button type="button" id="mlt" class="control">×</button>
+					<button type="button" id="div" class="control">÷</button>
+					<input id="result" class="input" type="number" disabled>
+				</div>
+			</form>
+		</div>
+		<div id="e3" class="block">
+			<form id="f2" method="POST">
+				<div class="field">
+					<label class="label" for="dni">Input DNI</label>
+					<input class="input" id="dni" type="text" placeholder="12345678X" maxlength="9">
+				</div>
+				<div class="field"><button id="validate" type="button" class="control">Check DNI</button></div>
+				<p id="validation"></p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
