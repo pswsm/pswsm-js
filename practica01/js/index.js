@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		)
 		xhrReq.onload = function() {
 			try {
-				console.log(xhrReq.response)
+				document.getElementById("response").innerHTML = xhrReq
 			} catch (e) {
 				console.error(e)
 			}
