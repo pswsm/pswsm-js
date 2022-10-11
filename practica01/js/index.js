@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			})
 		)
 		xhrReq.onload = function() {
-			parsedResponse = JSON.parse(xhrReq.response)
-			document.getElementById("response").innerHTML = "cum";
+			document.getElementById("response").innerHTML = JSON.parse(xhrReq.response);
 		}
 	})
 })
