@@ -5,9 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("logRegCtrl").style.display = "block"
 	})
 	let xhrReq = new XMLHttpRequest()
-	xhrReq.open("GET", "../php/getopts.php")
+	xhrReq.open("GET", "./php/getopts.php")
 	xhrReq.send
 	xhrReq.onload = function () {
-
+		let options = ''
+		let response = JSON.parse(xhrReq.response)
+		console.log('response:', response)
+		// response.forEach(element => {
+			// options += "<option>" + response[element]["iata"] + "-" + response[element]["city"] + "</option>"
+		// })
+		// document.getElementsByTagName("select").innerHTML = options
 	} 
 })
