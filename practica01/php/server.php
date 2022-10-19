@@ -7,8 +7,10 @@ function csvToArr(): array {
 	$kvArr = [];
 	while (!feof($fh)) {
 		$tmpArr = fgetcsv($fh);
-		$kvArr[$tmpArr[0]] = [FIELDS[0] => $tmpArr[1], FIELDS[1] => $tmpArr[2]];
-	}
+		if ($tmpArr != false) {
+			$kvArr[$tmpArr[0]] = [FIELDS[0] => $tmpArr[1], FIELDS[1] => $tmpArr[2]];
+		};
+	};
 	fclose($fh);
 	return $kvArr;
 }
@@ -17,12 +19,12 @@ function searchUser(string $username, string $password): string {
 	$users = csvToArr();
 	if (array_key_exists($username, $users)) {
 		if ($users[$username]["password"] == $password) {
-			$ret_value = json_encode([$username, $users[$username]["role"]]);
+			$ret_value = json_encode(["status" => true, "message" => ["user" => $username, "role" => $users[$username]["role"]]]);
 		} else {
-			$ret_value = json_encode("Password does not match");
+			$ret_value = json_encode(["status" => false, "message" => "Password does not match"]);
 		}
 	} else {
-		$ret_value = json_encode("Username not found");
+		$ret_value = json_encode(["status" => false, "message" => "Username not found"]);
 	};
 	return $ret_value;
 }
@@ -32,9 +34,9 @@ function makeUser(string $username, string $password, string $role = 'user'): st
 		$fh = fopen("./users.csv", 'a');
 		fputcsv($fh, [$username, $password, $role]);
 		fclose($fh);
-		$retValue = json_encode([$username]);
+		$retValue = json_encode(["status" => true, "message" => "User created ok. You may login now."]);
 	} else {
-		$retValue = json_encode("User already exists.");
+		$retValue = json_encode(["status" => false, "message" => "User already exists."]);
 	};
 	return $retValue;
 }
