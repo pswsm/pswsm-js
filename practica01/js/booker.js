@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+function loadOptions() {
 	document.getElementById("logout").addEventListener("click", function () {
 		document.cookie = "username='';max-age=-1"
 		document.getElementById("logged").style.display = "none"
@@ -6,14 +6,19 @@ document.addEventListener("DOMContentLoaded", function () {
 	})
 	let xhrReq = new XMLHttpRequest()
 	xhrReq.open("GET", "./php/getopts.php")
-	xhrReq.send
+	xhrReq.send()
 	xhrReq.onload = function () {
-		let options = ''
+		selects = document.getElementsByTagName("select")
 		let response = JSON.parse(xhrReq.response)
-		console.log('response:', response)
-		// response.forEach(element => {
-			// options += "<option>" + response[element]["iata"] + "-" + response[element]["city"] + "</option>"
-		// })
-		// document.getElementsByTagName("select").innerHTML = options
+		response.forEach(element => {
+			option = document.createElement("option")
+			option.value = element["iata_code"]
+			option.innerHTML = element["iata_code"] + " - " + element["city"]
+			for (let i = 0; i < selects.length; i++) {
+				console.log('select:', selects[i])
+				selects[i].appendChild(option)
+			}
+			// console.log('element:', element)
+		})
 	} 
-})
+}

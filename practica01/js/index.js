@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					document.cookie = "username=" + resp.message.user + ";max-age=86400"
 					document.getElementById("logged").style.display = "block"
 					document.getElementById("logRegCtrl").style.display = "none"
+					loadOptions()
 					break;
 
 				case false:
