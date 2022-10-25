@@ -10,15 +10,17 @@ function loadOptions() {
 	xhrReq.onload = function () {
 		selects = document.getElementsByTagName("select")
 		let response = JSON.parse(xhrReq.response)
-		response.forEach(element => {
-			option = document.createElement("option")
-			option.value = element["iata_code"]
-			option.innerHTML = element["iata_code"] + " - " + element["city"]
-			for (let i = 0; i < selects.length; i++) {
-				console.log('select:', selects[i])
-				selects[i].appendChild(option)
-			}
-			// console.log('element:', element)
-		})
+		if (!(selects[0].hasChildNodes())) {
+			response.forEach(element => {
+				option = document.createElement("option")
+				option.value = element["iata_code"]
+				option.innerHTML = element["iata_code"] + " - " + element["city"]
+				let options = [option, option.cloneNode(true)]
+				for (let i = 0; i < selects.length; i++) {
+					selects[i].appendChild(options[i])
+				}
+				// console.log('element:', element)
+			})
+		}
 	} 
 }

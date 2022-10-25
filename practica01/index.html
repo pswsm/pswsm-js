@@ -15,23 +15,30 @@
 	<script src="./js/index.js"></script>
 </head>
 <body>
-	<nav class="level">
-		<div class="level-left">
-			<div class="level-item has-text-centered">
-				<div class="container">
-					<p id="rellotge"></p>
-				</div>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<div class="navbar-item">
+				<p id="rellotge"></p>
+			</div>
+			<div class="navbar-item">
+				<p class="title">Transports Aeris de Catalunya</p>
 			</div>
 		</div>
-		<div class="level-item has-text-centered">
-			<p class="title">Transports Aeris de Catalunya</p>
+		<div class="navbar-menu">
+			<div class="navbar-start">
+
+			</div>
+			<div class="navbar-end">
+				<div class="navbar-item">
+					<button id="logout" class="button is-danger" style="display:none">Logout</button>
+				</div>
+			</div>
 		</div>
 	</nav>
 	<div class="columns">
 		<div class="column"></div>
 		<div class="column is-two-thirds" id="main">
 			<div id="logged" style="display:none">
-				<button id="logout" class="button is-danger">Logout</button>
 				<div class="box">
 					<form>
 						<div class="field">
