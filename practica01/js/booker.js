@@ -24,3 +24,11 @@ function loadOptions() {
 		}
 	} 
 }
+
+function bookerSubmitActivate() {
+	document.getElementById("submit_booking").addEventListener("click", function () {
+		let today_date = Date.now()
+		let date_from = Date.parse(document.getElementById("from").value)
+		let date_to = Date.parse(document.getElementById("todate").value)
+	})
+}

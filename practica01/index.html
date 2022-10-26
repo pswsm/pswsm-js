@@ -57,6 +57,27 @@
 								</div>
 							</div>
 						</div>
+						<div class="field">
+							<label class="label" for="from">Desde:&nbsp;<input id="from" type="date" name="from"></label>
+						</div>
+						<div class="field">
+							<label class="label" for="todate">Fins a:&nbsp;<input id="todate" type="date" name="todate"></label>
+						</div>
+						<div>
+							<p class="label">Nombre de passatgers:</p>
+							<div class="field is-grouped">
+								<label class="radio"><input id="npass1" type="radio" name="nPass" value="1">1</label>
+								<label class="radio"><input id="npass2" type="radio" name="nPass" value="2">2</label>
+								<label class="radio"><input id="npass3" type="radio" name="nPass" value="3">3</label>
+								<label class="radio"><input id="npass4" type="radio" name="nPass" value="4">4</label>
+							</div>
+						</div>
+						<div class="control">
+							<div class="buttons">
+								<button id="submit_booking" class="button is-primary" type="button" name="submit_booking">Confirmar</button>
+								<button id="reset" class="button is-warning" type="reset" name="reset_booking">Canceŀlar</button>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -81,7 +102,7 @@
 						</div>
 						<div class="control">
 							<button id="submit_login" type="button" name="submit_login">Submit</button>
-							<button id="reset_login" type="button" name="reset_login">Reset</button>
+							<button id="reset_login" type="reset" name="reset_login">Reset</button>
 						</div>
 					</form>
 				</div>
