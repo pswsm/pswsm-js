@@ -26,9 +26,22 @@ function loadOptions() {
 }
 
 function bookerSubmitActivate() {
-	document.getElementById("submit_booking").addEventListener("click", function () {
-		let today_date = Date.now()
-		let date_from = Date.parse(document.getElementById("from").value)
-		let date_to = Date.parse(document.getElementById("todate").value)
-	})
+	console.log('submit activate run')
+	let orig = document.getElementById("sOrig").value
+	let dest = document.getElementById("sDest").value
+	let date_from = Date.parse(document.getElementById("from").value)
+	let date_to = Date.parse(document.getElementById("todate").value)
+	let nPass = document.getElementsByName('nPass')
+	for (let idx = 0; idx < nPass.length; idx++) {
+		const ccc = nPass[idx];
+		if (ccc.checked) {
+			let numPassengers = ccc.value
+		}
+	}
+	if (date_from >= Date.now() && date_from < date_to && orig !== dest && nPass !== 'undefined') {
+		document.getElementById("submit_booking").disabled = false
+	} else {
+		document.getElementById("submit_booking").disabled = true
+	}
+	setTimeout(bookerSubmitActivate, 500);
 }
