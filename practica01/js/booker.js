@@ -26,7 +26,7 @@ function loadOptions() {
 }
 
 function bookerSubmitActivate() {
-	console.log('submit activate run')
+	// console.log('submit activate run')
 	let orig = document.getElementById("sOrig").value
 	let dest = document.getElementById("sDest").value
 	let date_from = Date.parse(document.getElementById("from").value)
@@ -44,4 +44,12 @@ function bookerSubmitActivate() {
 		document.getElementById("submit_booking").disabled = true
 	}
 	setTimeout(bookerSubmitActivate, 500);
+}
+
+function onBookerOkay() {
+	divBox = document.createElement("div");
+	divBox.className = "box"
+	
+	document.getElementById("main").innerHTML = ""
+
 }

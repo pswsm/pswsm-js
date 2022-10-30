@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					document.getElementById("logout").style.display = "block"
 					document.getElementById("logRegCtrl").style.display = "none"
 					loadOptions()
+					bookerSubmitActivate()
 					break;
 
 				case false:
@@ -83,5 +84,4 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		}
 	})
-
 })
