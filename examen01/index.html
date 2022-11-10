@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exàmen JavaScript</title>
+	<link rel="stylesheet" href="./vendor/bulma.min.css">
+	<script src="./js/getoptions.js"></script>
+	<script src="./js/secondform.js"></script>
+	<script src="./js/final.js"></script>
+	<script src="./js/index.js"></script>
+</head>
+<body>
+	<div class="columns">
+		<div class="column"></div>
+		<div class="column is-two-thirds" id="div1">
+			<form>
+				<div class="field">
+					<label class="label" for="genubi">Ubicació General:</label>
+					<div class="control">
+						<div class="select">
+							<select id="genubi" name="genubi"></select>
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="specubi">Espai de la incidència:</label>
+					<div class="control">
+						<div class="select">
+							<select id="specubi" name="specubi"></select>
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label" for="invid">Identificar inventari:</label>
+					<input id="invid" type="text" name="invid" placeholder="ex: AAAA:000">
+					<span id="help"><span>
+				</div>
+				<div class="control">
+					<div class="buttons">
+						<button id="submitloc" class="button is-primary" type="button" name="submitloc" disabled>Confirmar</button>
+						<button id="reset" class="button is-warning" type="reset" name="resetloc">Netejar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="column is-two-thirds" id="div2" style="display:none;">
+			<p id="where" class="is-3"></p>
+			<p id="thing" class="is-4"></p>
+			<form>
+				<div class="field">
+					<label class="label" for="desc">Descripció Incidència:</label>
+					<textarea id="desc" class="textarea" name="desc" cols="30" rows="10" max_length="120"></textarea>
+				</div>
+				<div class="field">
+					<label class="label" for="data">Data incidència:</label>
+					<input id="datewhen" class="form-control" type="date" name="data">
+				</div>
+				<div class="field">
+					<label class="label" for="tlf">Telèfon de contacte:</label>
+					<input id="tlf" class="form-control" type="text" name="tlf" placeholder="600600600">
+				</div>
+				<div class="field">
+					<label class="label" for="mail">Email de contacte:</label>
+					<input id="mail" class="form-control" type="text" name="tlf" placeholder="josepmaria@exemple.cat">
+				</div>
+				<div class="field">
+					<p class="label">Priotitat</p>
+					<div class="control">
+						<label class="radio"><input id="baixa" type="radio" name="prioritat" value="baixa">Baixa</label>
+						&nbsp;
+						<label class="radio"><input id="normal" type="radio" name="prioritat" value="normal">Normal</label>
+						&nbsp;
+						<label class="radio"><input id="alta" type="radio" name="prioritat" value="alta">Alta</label>
+					</div>
+				</div>
+				<div class="control">
+					<div class="buttons">
+						<button id="submitinfo" class="button is-primary" type="button" name="submitinfo" disabled>Confirmar</button>
+						<button id="resetinfo" class="button is-warning" type="reset" name="resetinfo">Netejar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="div3" class="column is-two-thirds" style="display:none;">
+			<div id="dabox" class="box"></div>
+			<div class="columns">
+				<div class="column is-one-third"><button id="gofirst" class="button" type="button">Enrere</button></div>
+				<div class="column is-one-third"><button class="button" type="button">Imprimir</button></div>
+			</div>
+		</div>
+		<div class="column"></div>
+	</div>
+</body>
+</html>

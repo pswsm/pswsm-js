@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculadora JQ</title>
+	<script src="./vendor/cum.js"></script>
+	<script src="./js/calc.js"></script>
+</head>
+<body>
+	<div class="block" id="e2">
+		<form id="f1" method="POST">
+			<div class="field">
+				<label class="label" for="n1">Input number one</label>
+				<input id="n1" class="input" type="number" name="n1" placeholder="0">
+			</div>
+			<div class="field">
+				<label class="label" for="n2">Input number two</label>
+				<input id="n2" class="input" type="number" name="n2" placeholder="0">
+			</div>
+			<div class="field">
+				<button type="button" id="sum" class="control">+</button>
+				<button type="button" id="min" class="control">-</button>
+				<button type="button" id="mlt" class="control">×</button>
+				<button type="button" id="div" class="control">÷</button>
+				<input id="result" class="input" type="number" disabled>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

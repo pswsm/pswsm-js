@@ -32,13 +32,14 @@ function bookerSubmitActivate() {
 	let date_from = Date.parse(document.getElementById("from").value)
 	let date_to = Date.parse(document.getElementById("todate").value)
 	let nPass = document.getElementsByName('nPass')
+	let numPassengers = undefined
 	for (let idx = 0; idx < nPass.length; idx++) {
 		const ccc = nPass[idx];
 		if (ccc.checked) {
-			let numPassengers = ccc.value
+			numPassengers = ccc.value
 		}
 	}
-	if (date_from >= Date.now() && date_from < date_to && orig !== dest && nPass !== 'undefined') {
+	if (date_from >= Date.now() && date_from < date_to && orig !== dest && numPassengers !== undefined) {
 		document.getElementById("submit_booking").disabled = false
 	} else {
 		document.getElementById("submit_booking").disabled = true

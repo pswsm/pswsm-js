@@ -1,0 +1,14 @@
+table {
+	border-collapse: collapse;
+}
+
+td {
+	padding: 20px;
+}
+
+.center {
+	box-sizing: border-box;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
