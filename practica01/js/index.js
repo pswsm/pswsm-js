@@ -1,3 +1,5 @@
+const USERS = [{'username': 'pswsm', 'password': 'pswsm', 'role': 'user'}, {'username': 'admin', 'password': 'admin', 'role': 'administrator'}]
+
 function fieldOk(username, password) {
 	let usernameOk = false
 	let pwdOk = false
@@ -10,39 +12,76 @@ function fieldOk(username, password) {
 	return[usernameOk, pwdOk]
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-	document.getElementById("submit_login").addEventListener("click", function () {
-		let xhrReq = new XMLHttpRequest()
-		xhrReq.open("POST", "./php/server.php")
-		xhrReq.send(JSON.stringify(
-			{
-				"operation": "login",
-				"username": document.getElementById("username_login").value,
-				"password": document.getElementById("password_login").value
-			})
-		)
-		xhrReq.onload = function() {
-			//console.log('xhrReq:', xhrReq);
-			resp = JSON.parse(xhrReq.response)
-			switch (resp.status) {
-				case true:
-					document.cookie = "username=" + resp.message.user + ";max-age=86400"
-					document.getElementById("logged").style.display = "block"
-					document.getElementById("logout").style.display = "block"
-					document.getElementById("logRegCtrl").style.display = "none"
-					loadOptions()
-					bookerSubmitActivate()
-					break;
-
-				case false:
-					document.getElementById("response_login").innerHTML = resp.message
-					break;
-
-				default:
-					document.getElementById("response_login").innerHTML = "Could not contact server"
-					break;
-			}
+/** PHP Login function
+function searchUser(string $username, string $password): string {
+	$users = csvToArr();
+	if (array_key_exists($username, $users)) {
+		if ($users[$username]["password"] == $password) {
+			$ret_value = json_encode(["status" => true, "message" => ["user" => $username, "role" => $users[$username]["role"]]]);
+		} else {
+			$ret_value = json_encode(["status" => false, "message" => "Password does not match"]);
 		}
+	} else {
+		$ret_value = json_encode(["status" => false, "message" => "Username not found"]);
+	};
+	return $ret_value;
+}
+*/
+
+function login(userdata, userList) {
+	console.log('reg_data: ', reg_data, 'userdata: ', userdata)
+	if (reg_data.username === userdata.username) {
+		if (reg_data.password === userdata.password) {
+			document.cookie = "username=" + resp.message.user + ";max-age=86400"
+			document.getElementById("logged").style.display = "block"
+			document.getElementById("logout").style.display = "block"
+			document.getElementById("logRegCtrl").style.display = "none"
+			loadOptions()
+			bookerSubmitActivate()
+		} else {
+			document.getElementById("response_login").innerHTML = 'Incorrect user!';
+		}
+	} else {
+		document.getElementById("response_login").innerHTML = 'Incorrect user!';
+	}
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+	console.log('Content loaded!')
+	document.getElementById("submit_login").addEventListener("click", () => {
+		const userdata = {'username': document.getElementById('username_login'), 'password': document.getElementById('password_login')};
+		console.log(userdata)
+		USERS.forEach(e => login(userdata, e))
+		// let xhrReq = new XMLHttpRequest()
+		// xhrReq.open("POST", "./php/server.php")
+		// xhrReq.send(JSON.stringify(
+		// 	{
+		// 		"operation": "login",ffffusername": document.getElementById("username_login").value,
+		// 		"password": document.getElementById("password_login").value
+		// 	})
+		// )
+		// xhrReq.onload = function() {
+		// 	//console.log('xhrReq:', xhrReq);
+		// 	resp = JSON.parse(xhrReq.response)
+		// 	switch (resp.status) {
+		// 		case true:
+		// 			document.cookie = "username=" + resp.message.user + ";max-age=86400"
+		// 			document.getElementById("logged").style.display = "block"
+		// 			document.getElementById("logout").style.display = "block"
+		// 			document.getElementById("logRegCtrl").style.display = "none"
+		// 			loadOptions()
+		// 			bookerSubmitActivate()
+		// 			break;
+
+		// 		case false:
+		// 			document.getElementById("response_login").innerHTML = resp.message
+		// 			break;
+
+		// 		default:
+		// 			document.getElementById("response_login").innerHTML = "Could not contact server"
+		// 			break;
+		// 	}
+		// }
 	})
 	document.getElementById("submit_register").addEventListener("click", function () {
 		let fieldEvalRes = fieldOk(document.getElementById("username_register").value, document.getElementById("password_login_1").value)
