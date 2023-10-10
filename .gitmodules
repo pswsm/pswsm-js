@@ -1,0 +1,3 @@
+[submodule "angular-pt1"]
+	path = angular-pt1
+	url = git@github.com:pswsm/angular-pt1.git

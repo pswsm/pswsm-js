@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1080, initial-scale=1">
+	<title>Boards</title>
+  <script src="js/index.js"></script>
+  <link rel="stylesheet" href="./css/bulma.min.css">
+</head>
+<style>
+.square {
+  height: 10em;
+  width: 10em;
+  margin: auto;
+}
+.mother {
+  margin: 0 auto;
+  background-color: darkgray;
+  width: 75%;
+}
+.hidden {
+  display: none;
+}
+.twoxtwo {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 20px;
+}
+.fourxfour {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+</style>
+<body>
+  <section class="container" id="sform">
+  	<form id="board_info">
+      <div class="field" id="player_name">
+        <label class="label" for="name">Player name:</label>
+        <div class="control">
+          <input class="input" type="text" id="name" name="name"></input>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control select w-100">
+          <select name="size" id="size">
+            <option value="1">2x2</option>
+            <option value="2">4x4</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <button class="button is-primary" type="button" id="start_game" disabled>Submit!</button>
+      </div>
+    </form>
+  </section>
+  <section class="container hidden" id="game">
+  </section>
+</body>
+</html>

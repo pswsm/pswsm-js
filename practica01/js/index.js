@@ -28,11 +28,15 @@ function searchUser(string $username, string $password): string {
 }
 */
 
-function login(userdata, userList) {
+function login(userdata, reg_data) {
 	console.log('reg_data: ', reg_data, 'userdata: ', userdata)
+	if (userdata.username == '') {
+			document.getElementById("response_login").innerHTML = 'Username field cannot be empty!';
+			return 1;
+	}
 	if (reg_data.username === userdata.username) {
 		if (reg_data.password === userdata.password) {
-			document.cookie = "username=" + resp.message.user + ";max-age=86400"
+			document.cookie = "username=" + reg_data.username + ";max-age=86400"
 			document.getElementById("logged").style.display = "block"
 			document.getElementById("logout").style.display = "block"
 			document.getElementById("logRegCtrl").style.display = "none"
@@ -49,7 +53,7 @@ function login(userdata, userList) {
 document.addEventListener("DOMContentLoaded", function () {
 	console.log('Content loaded!')
 	document.getElementById("submit_login").addEventListener("click", () => {
-		const userdata = {'username': document.getElementById('username_login'), 'password': document.getElementById('password_login')};
+		const userdata = {'username': document.getElementById('username_login').value, 'password': document.getElementById('password_login').value};
 		console.log(userdata)
 		USERS.forEach(e => login(userdata, e))
 		// let xhrReq = new XMLHttpRequest()
